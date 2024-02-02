@@ -60,19 +60,21 @@ a {
   display: flex;
   justify-content: space-between;
 }
-.weather-app-temperature {
+.weather-app-temperature-container {
   display: flex;
 }
 .weather-app-temperature-value {
-  font-size: 80px;
+  font-size: 70px;
   font-weight: bold;
-  margin-left: 12px;
+  line-height: 88px;
+  margin-left: 10px;
 }
 .weather-app-icon {
-  font-size: 58px;
-  margin-top: 22px;
+  width: 88px;
+  height: 88px;
 }
+
 .weather-app-unit {
-  margin-top: 20px;
-  font-size: 20px;
+  margin-top: 16px;
+  font-size: 28px;
 }
