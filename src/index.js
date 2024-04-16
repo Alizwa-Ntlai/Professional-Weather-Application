@@ -46,7 +46,30 @@ function searchBarElement(event) {
   let searchInput = document.querySelector("#input-search");
   searchCity(searchInput.value);
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Tue", "Wed", "Thur", "Fri", "Sat"];
+  let forecastHTML = "";
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+          <div class="weather-forecast-day">
+            <div class="weather-forecast-date">${day}</div>
+            <div class="weather-forecast-icon">🌤️</div>
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-temperature">
+                <strong>23º</strong>
+              </div>
+              <div class="weather-forecast-temperature">13º</div>
+            </div>
+            </div>
+`;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchBarElement);
 searchCity("Cape Town");
+displayForecast();
