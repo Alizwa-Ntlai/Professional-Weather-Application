@@ -38,6 +38,7 @@ function formatDate(date) {
 function searchCity(city) {
   let apiKey = "1eafo8c549253t7ecbdfbc850a6a8763";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
   axios.get(apiUrl).then(updateWeather);
 }
 
@@ -46,8 +47,13 @@ function searchBarElement(event) {
   let searchInput = document.querySelector("#input-search");
   searchCity(searchInput.value);
 }
+function getForecast(city) {
+  let apiKey = "1eafo8c549253t7ecbdfbc850a6a8763";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+}
+
 function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
   let days = ["Tue", "Wed", "Thur", "Fri", "Sat"];
   let forecastHTML = "";
   days.forEach(function (day) {
@@ -58,18 +64,20 @@ function displayForecast() {
             <div class="weather-forecast-date">${day}</div>
             <div class="weather-forecast-icon">🌤️</div>
             <div class="weather-forecast-temperatures">
-              <div class="weather-forecast-temperature">
+              <div class="weather-forecast-temperature-max">
                 <strong>23º</strong>
               </div>
-              <div class="weather-forecast-temperature">13º</div>
+              <div class="weather-forecast-temperature-min">13º</div>
             </div>
             </div>
 `;
   });
+  let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHTML;
 }
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchBarElement);
 searchCity("Cape Town");
+getForecast("Cape Town");
 displayForecast();

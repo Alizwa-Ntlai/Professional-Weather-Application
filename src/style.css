@@ -109,12 +109,15 @@ a {
 }
 .weather-forecast-temperatures {
   text-align: center;
-  color: #f76b8a;
   margin-top: 10px;
   display: flex;
+  color: #f76b8a;
   justify-content: center;
 }
 
-.weather-forecast-temperature {
-  padding: 0 10px;
+.weather-forecast-temperature-max {
+  padding: 10px;
+}
+.weather-forecast-temperature-min {
+  padding: 10px;
 }
